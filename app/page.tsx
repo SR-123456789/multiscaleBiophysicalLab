@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import type React from "react";
+import React from 'react';
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -232,7 +232,7 @@ export default function Home() {
 
       {/* Research Section */}
       <section className="py-16 bg-white">
-        <div className="container px-4">
+        <div className="container  max-w-6xl px-4">
           <SectionAnimation>
             <h2 className="section-title mb-8">研究内容</h2>
             <div className="touch-pan-x">
@@ -294,62 +294,35 @@ export default function Home() {
       </section>
 
       {/* Quick Navigation Section - 新しく追加 */}
-      <section className="py-12 bg-gradient-to-b from-white to-gray-50">
-        <div className="container px-4">
-          <SectionAnimation>
-            <h2 className="section-title mb-12 text-center">研究室について</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-              {[
-                {
-                  icon: <Users className="h-8 w-8 mb-3" />,
-                  title: "メンバー",
-                  href: "/members",
-                  color: "primary",
-                },
-                {
-                  icon: <Award className="h-8 w-8 mb-3" />,
-                  title: "研究業績",
-                  href: "/achievements",
-                  color: "secondary",
-                },
-                {
-                  icon: <Microscope className="h-8 w-8 mb-3" />,
-                  title: "研究設備",
-                  href: "/facilities",
-                  color: "primary",
-                },
-                {
-                  icon: <Flask className="h-8 w-8 mb-3" />,
-                  title: "研究テーマ",
-                  href: "/research",
-                  color: "secondary",
-                },
-                {
-                  icon: <BookOpen className="h-8 w-8 mb-3" />,
-                  title: "ブログ/特集",
-                  href: "/blog",
-                  color: "primary",
-                },
-                {
-                  icon: <GraduationCap className="h-8 w-8 mb-3" />,
-                  title: "学生の方へ",
-                  href: "/students",
-                  color: "secondary",
-                },
-              ].map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className={`flex flex-col items-center justify-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border-b-4 border-${item.color} text-center h-full`}
-                >
-                  <div className={`text-${item.color}`}>{item.icon}</div>
-                  <h3 className="font-bold">{item.title}</h3>
-                </Link>
-              ))}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+  <div className="container px-4 max-w-6xl">
+    <SectionAnimation>
+      <h2 className="section-title mb-12 text-3xl font-bold text-center">研究室について</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {[
+          { icon: <Users />, title: "メンバー", href: "/members", color: "primary" },
+          { icon: <Award />, title: "研究業績", href: "/achievements", color: "secondary" },
+          { icon: <Microscope />, title: "研究設備", href: "/facilities", color: "primary" },
+          { icon: <Flask />, title: "研究テーマ", href: "/research", color: "secondary" },
+          { icon: <BookOpen />, title: "ブログ/特集", href: "/blog", color: "primary" },
+          { icon: <GraduationCap />, title: "学生の方へ", href: "/students", color: "secondary" },
+        ].map((item, index) => (
+          <Link
+            key={index}
+            href={item.href}
+            className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white shadow-md hover:shadow-2xl transition transform hover:-translate-y-2 hover:scale-105 border border-gray-100"
+          >
+            <div className={`flex items-center justify-center w-14 h-14 mb-4 rounded-full bg-${item.color}/10 text-${item.color}`}>
+              {React.cloneElement(item.icon, { className: "h-7 w-7" })}
             </div>
-          </SectionAnimation>
-        </div>
-      </section>
+            <h3 className="font-semibold text-sm text-gray-800">{item.title}</h3>
+          </Link>
+        ))}
+      </div>
+    </SectionAnimation>
+  </div>
+</section>
+
 
       {/* Philosophy Section - 新しく追加 */}
       <section className="py-16 bg-gray-50 relative overflow-hidden">
@@ -386,7 +359,7 @@ export default function Home() {
 
       {/* For Students Section - 新しく追加 */}
       <section className="py-16 bg-white">
-        <div className="container px-4">
+        <div className="container px-4 max-w-6xl">
           <SectionAnimation>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
@@ -446,7 +419,7 @@ export default function Home() {
 
       {/* Contact CTA Section - 新しく追加 */}
       <section className="py-16 bg-secondary text-white">
-        <div className="container px-4">
+        <div className="container px-4 max-w-6xl">
           <SectionAnimation>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">

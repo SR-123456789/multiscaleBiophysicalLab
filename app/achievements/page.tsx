@@ -77,7 +77,7 @@ export default function AchievementsPage() {
 
   // スティッキーヘッダー用のクラス
   const stickyHeaderClass =
-    "w-full flex justify-between items-center p-3 bg-gray-50 hover:bg-gray-100 transition-colors sticky top-[72px] z-10 border-b shadow-sm"
+    "w-full flex justify-between items-center p-3 bg-gray-50 hover:bg-gray-100 transition-colors sticky z-10 border-b shadow-sm"
 
   const toggleSection = (section: string) => {
     setExpandedSections((prev) => ({
@@ -182,7 +182,7 @@ export default function AchievementsPage() {
         <div className="space-y-8">
           {/* 査読付き学術論文 */}
           <SectionAnimation>
-            <div className="border rounded-lg overflow-hidden">
+            <div className="border rounded-lg overflow-hidden relative">
               <button className={stickyHeaderClass} onClick={() => toggleSection("journals")}>
                 <h2 className="text-xl font-bold text-secondary">査読付き学術論文（Journal Articles）</h2>
                 {expandedSections.journals ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
