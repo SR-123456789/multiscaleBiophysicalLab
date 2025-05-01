@@ -185,3 +185,19 @@
   touch-action: pan-x;
   -webkit-overflow-scrolling: touch;
 }
+
+/* cms の本文専用ユーティリティ  */
+@layer utilities {
+  /* 直下の兄弟要素すべてに上マージンをつける */
+  .cms-body > * + * {
+    @apply mt-6;
+  }
+
+  /* 見出しはもっと空けたい時 */
+  .cms-body h2 {
+    @apply mt-10 mb-4;
+  }
+  .cms-body h3 {
+    @apply mt-8 mb-3;
+  }
+}
